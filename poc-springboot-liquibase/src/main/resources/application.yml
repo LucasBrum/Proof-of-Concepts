@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: poc-springboot-liquibase
+  datasource:
+    url: jdbc:postgresql://localhost:5432/liquibase_poc_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none # Liquibase will handle schema changes
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml

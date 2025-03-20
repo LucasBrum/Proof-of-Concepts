@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/001-create-tables.yaml
+  - include:
+      file: db/changelog/002-create-products.yaml
+  - changeSet:
+      id: 3
+      author: LucasBrum
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: birth_date
+                  type: date
+      rollback:
+        - dropColumn:
+            tableName: users
+            columnName: birth_date
